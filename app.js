@@ -1,75 +1,66 @@
-// task 1
-let a = 1;
-let b = 2;
-
-function sum(param1, param2){
-    console.log(param1 + param2);
+// 1.Write a JavaScript function to check if given string includes given symbol.
+function checkSymbol(symbol, string) {
+    if(string.includes(symbol)) console.log('String includes symbol.');
+    else console.log('String doesn\'t include symbol.');
 }
 
-sum(a, b);
+checkSymbol('t', 'text');
 
 
-// task 2
-let string = 'My string';
-
-function newString(str) {
-    console.log('Test_' + str);
+// 2.Write a JavaScript function to check whether a string is blank or not 
+// (string with spaces should be also blank).
+function checkBlank(string) {
+    if(string == false || string.includes(' ')) console.log('Blank.');
+    else console.log('Not blank.');
 }
 
-newString(string);
+checkBlank('    ');
 
 
-// task 3
-let firstName = 'Viktoriia';
-let lastName = 'Demnyk';
-let age = 24;
-
-function myData(param1, param2, param3) {
-    console.log(`${param1} ${param2} ${param3}`);
+// 3.Write a JavaScript function to convert a string in abbreviated form. 
+// console.log(abbrev (“Nazar Babii")) – should be “N.B.” (should convert lower case names to upper).
+let firstLastName = 'Nazar Babii';
+function abbrev(param) {
+    let arr = param.split(' ');
+    let result = [];
+    result.push(arr[0][0], arr[1][0], '');
+    return result.join('.').toUpperCase();
 }
 
-myData(firstName, lastName, age);
+console.log(abbrev(firstLastName));
 
 
-// task 4
-let c = 101;
+// 4.Write a JavaScript function that accept two integers and display the larger.
+let int1 = 6;
+let int2 = 7;
 
-function check(int){
-    console.log('Is number bigger than 100?', int > 100)
+function compare2(param1, param2) {
+    if(param1 > param2) console.log(param1);
+    else if(param2 > param1) console.log(param2);
+    else console.log('Integers are equal.');
 }
 
-check(c);
+compare2(int1, int2);
 
 
-// task 5
-let d = 19;
+// 5.Write a JavaScript function with conditional statement to sort three numbers.
+let num1 = 3;
+let num2 = 1;
+let num3 = 2;
 
-function compare(param){
-    console.log('Is number larger from 18 and 21?', param > 18 && param > 21);
+function sort(p1, p2, p3) {
+    let sorted = [];
+    
+    if (p1 >= p2 && p1 >= p3) {
+        if (p2 >= p3) sorted.push(p3, p2, p1);
+        else sorted.push(p2, p3, p1);
+    } else if (p2 >= p1 && p2 >= p3) {
+        if (p1 >= p3) sorted.push(p3, p1, p2);
+        else sorted.push(p1, p3, p2);
+    } else if (p1 >= p2) sorted.push(p2, p1, p3);
+    else sorted.push(p1, p2, p3);
+
+    console.log(sorted.join(', '));
 }
 
-compare(d);
-
-
-// task 6
-let e = 1;
-let f = 49;
-
-function compare50(param1, param2){
-    return param1 === 50 || param2 === 50 || param1 + param2 === 50;
-}
-
-console.log('Is one of the number equal to 50 or their sum equal to 50?', compare50(e, f));
-
-
-// task 7
-let g = 21;
-
-function multiple(param) {
-    if (param % 3 === 0 && param % 7 === 0) console.log('Number is multiple of 3 and 7.');
-    else if (param % 3 === 0) console.log('Number is a multiple of 3.');
-    else if (param % 7 === 0) console.log('Number is a multiple of 7.');
-    else console.log('Number is not multiple of 3 or 7.')
-}
-
-multiple(g);
+sort(num1,num2,num3);
