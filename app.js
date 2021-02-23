@@ -10,11 +10,12 @@ checkSymbol('t', 'text');
 // 2.Write a JavaScript function to check whether a string is blank or not 
 // (string with spaces should be also blank).
 function checkBlank(string) {
-    if(string == false || string.includes(' ')) console.log('Blank.');
+    if(string.includes(' ')) string = string.replace(/ /g, '');
+    if(string == '') console.log('Blank.');
     else console.log('Not blank.');
 }
 
-checkBlank('    ');
+checkBlank(' gg gg ');
 
 
 // 3.Write a JavaScript function to convert a string in abbreviated form. 
