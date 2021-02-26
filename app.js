@@ -20,16 +20,21 @@ joinAll([5,'car', 'bike', true]);
 
 
 // 3.There are two arrays with individual values, write a JavaScript program to compute the sum of each individual index value from the given arrays and save them to third array
-let small = [1,2,3,4,5];
-let big = [11,12,13,14];
+let small = [1,2];
+let big = [11,12,13,14,15];
 
 function sumArrays(arr1, arr2) {
-    let sum1 = 0;
-    let sum2 = 0;
     let result = [];
-    for(let el of arr1) sum1 += el;
-    for(let el of arr2) sum2 += el;
-    result.push(sum1, sum2);
+    let bigger = (arr1.length > arr2.length) ? arr1 : arr2;
+    for(let i = 0; i < bigger.length; i++) {
+        if(arr1[i] == undefined) {
+            arr1[i] = 0;
+            result.push(arr1[i] + arr2[i]);
+        } else if(arr2[i] == undefined) {
+            arr2[i] = 0;
+            result.push(arr1[i] + arr2[i]);
+        } else result.push(arr1[i] + arr2[i]);
+    }
     console.log(result);
 }
 
