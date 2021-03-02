@@ -1,13 +1,13 @@
-const vehicle = require('./vehicle');
-const car = require('./car');
-const truck = require('./truck');
+const Vehicle = require('./vehicle');
+const Car = require('./car');
+const Truck = require('./truck');
 
-let bmw = new car.Car('BMW', 2000, 220);
+let bmw = new Car('BMW', 2000, 220);
 bmw.displayInfo();
 bmw.transportPeople();
 
-let man = new truck.Truck('MAN', 2010, 150);
+let man = new Truck('MAN', 2010, 150);
 man.displayInfo();
 man.transportContainer();
 
-vehicle.Vehicle.greeting();
+Vehicle.greeting();

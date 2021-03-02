@@ -1,6 +1,6 @@
-const vehicle = require('./vehicle');
+const Vehicle = require('./vehicle');
 
-class Car extends vehicle.Vehicle{ 
+class Car extends Vehicle{ 
     constructor(carModel, carYear, maxSpeed){ 
         super(carModel, carYear, maxSpeed); 
         this.type = 'car';
@@ -11,4 +11,4 @@ class Car extends vehicle.Vehicle{
     }
 }
 
-exports.Car = Car;
+module.exports = Car;

@@ -18,4 +18,4 @@ class Vehicle {
     }
 } 
 
-exports.Vehicle = Vehicle;
+module.exports = Vehicle;
