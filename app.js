@@ -1,16 +1,43 @@
-console.log("\nNice work! Your first application have been launched.");
-console.log("Now, I need to know your name, type it below: ");
+// console.log('1 step'); 
+// console.log('2 step'); 
 
-let stdin = process.openStdin();
+// setTimeout(() => { 
+//     console.log('3 step'); 
+// }, 3000) 
 
-stdin.addListener("data", (txt) => {
-    if(txt.toString().trim() === "quit") {
-        console.log("\nHave a nice JS trip! Bye-bye");
-        stdin.end();
-    } else {
-        console.log(`\nHi ${txt.toString().trim()}, nice to meet you at Eleks QA Academy 2018. I am sure you'll become great in your job.`);
-        console.log(`${txt.toString().trim()}, to quit this application you can use 'Ctrl + C' keys, or type 'quit' and hit 'Enter'`); 
-    }   
-  });
+// console.log('4 step'); 
 
-  // some changes
+
+// console.log('1 step'); 
+// console.log('2 step'); 
+
+// new Promise((resolve, reject) => setTimeout(() => {
+//     console.log('3 step');
+//     resolve(); 
+// }, 3000)).then(() => {
+//     console.log('4 step')
+// });
+
+Promise.all([
+    new Promise((resolve, reject) => setTimeout(() => resolve(1), 1000)),
+    new Promise((resolve, reject) => setTimeout(() => resolve(2), 2000)),
+    new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000)),
+]).then((result) => {
+    console.log(result[0]);
+    console.log(result[1]);
+    console.log(result[2]);
+});
+
+// function login(email, pass) {
+//     emailInput.sendKeys(email).then(() => {
+//         passwordInput.sendKeys(pass).then(() => {
+//             loginButton.click();
+//         });
+//     }); 
+// }
+
+// async function login(email, pass) {
+//     await emailInput.sendKeys(email);
+//     await passwordInput.sendKeys(pass);
+//     await loginButton.click();
+// }
