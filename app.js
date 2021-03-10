@@ -1,16 +1,36 @@
-console.log("\nNice work! Your first application have been launched.");
-console.log("Now, I need to know your name, type it below: ");
+const randomstring = require("randomstring");
+const fs = require('fs');
 
-let stdin = process.openStdin();
+// Create a variable student and set ‘name’, ‘surname’ and ‘rate’. 
+// Name and surname generate using randomstring. Rate generate using Math, in range 1-100.
+let student = {
+    name: randomstring.generate({
+        length: 5,
+        charset: 'alphabetic'
+    }),
+    surname: randomstring.generate({
+        length: 10,
+        charset: 'alphabetic'
+    }),
+    rate: Math.floor((Math.random() * 100) + 1)
+}
 
-stdin.addListener("data", (txt) => {
-    if(txt.toString().trim() === "quit") {
-        console.log("\nHave a nice JS trip! Bye-bye");
-        stdin.end();
-    } else {
-        console.log(`\nHi ${txt.toString().trim()}, nice to meet you at Eleks QA Academy 2018. I am sure you'll become great in your job.`);
-        console.log(`${txt.toString().trim()}, to quit this application you can use 'Ctrl + C' keys, or type 'quit' and hit 'Enter'`); 
-    }   
-  });
+// Use JSON.stringify() method to make a JSON string and write it into file (not existed), rewrite file if existed.
+fs.writeFile('student.txt', JSON.stringify(student),
+    function (err) {
+        if(err) throw err;
+        console.log('Saved!');
+    });
 
-  // some changes
+// Read this string from file and convert to object.
+fs.readFile('student.txt', function (err, data) {
+    console.log(JSON.parse(data));
+});
+
+// Make some change to object and append is as new line to existed file. Write changes into the same file.
+student.age = 18;
+fs.appendFile('student.txt', JSON.stringify(student),
+    function (err) {
+        if(err) throw err;
+        console.log('Added!');
+    });
