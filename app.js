@@ -16,21 +16,15 @@ let student = {
 }
 
 // Use JSON.stringify() method to make a JSON string and write it into file (not existed), rewrite file if existed.
-fs.writeFile('student.txt', JSON.stringify(student),
-    function (err) {
-        if(err) throw err;
-        console.log('Saved!');
-    });
-
 // Read this string from file and convert to object.
-fs.readFile('student.txt', function (err, data) {
-    console.log(JSON.parse(data));
-});
-
 // Make some change to object and append is as new line to existed file. Write changes into the same file.
-student.age = 18;
-fs.appendFile('student.txt', JSON.stringify(student),
-    function (err) {
-        if(err) throw err;
-        console.log('Added!');
+fs.writeFile('student.txt', JSON.stringify(student), function(err) {
+    if(err) throw err;
+    fs.readFile('student.txt', function(err, data) {
+        let obj = JSON.parse(data);
+        obj.age = 18;
+        fs.appendFile('student.txt', JSON.stringify(obj), function(err) {
+            if(err) throw err;
+        });
     });
+});
