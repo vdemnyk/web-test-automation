@@ -3,8 +3,10 @@
     "version": "1.0.0",
     "description": "demo",
     "author": "",
-    "license": "ISC",    
+    "license": "ISC",
     "dependencies": {},
-    "devDependencies": {},
+    "devDependencies": {
+        "jasmine": "^3.6.4"
+    },
     "scripts": {}
-  }
+}
